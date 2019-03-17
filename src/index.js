@@ -1,5 +1,3 @@
-function WASSUP() {
-}
+function WASSUP() {}
 
-
-export default WASSUP()
+export default WASSUP();
