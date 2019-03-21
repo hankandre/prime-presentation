@@ -1,5 +1,6 @@
 import $ from 'jquery/dist/jquery.slim';
 import { kebabCase } from 'lodash-es';
+import { storageKey } from '.';
 
 function buildRepo({ node: { url, id, description, name } } = {}) {
   return `
@@ -30,11 +31,21 @@ export default function(userData) {
   } = userData;
 
   body.html(`
-      <div class="hero"><a href="${url}"><img class="github-avatar" alt="${name} avatar" src="${avatarUrl}"/>
-      <h2>The GitHub profile of ${name}</h2>
-      </a></div>
+      <div class="hero">
+        <a href="${url}">
+          <img class="github-avatar" alt="${name} avatar" src="${avatarUrl}"/>
+          <h2>The GitHub profile of ${name}</h2>
+        </a>
+        <button id="clearUser">Log out</button>
+      </div>
       ${[['starred repos', starredRepositories], ['my repos', repositories]]
         .map(list => buildRepoList(...list))
         .join('')}
     `);
+
+  $('#clearUser').click(e => {
+    if (e) e.preventDefault();
+    localStorage.removeItem(storageKey);
+    location.reload(false);
+  });
 }

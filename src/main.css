@@ -4,6 +4,7 @@
 }
 
 :root {
+  height: 100%;
   --color-hover: hsla(222, 100%, 3%, 0.05);
 }
 
@@ -14,6 +15,7 @@
 }
 
 body {
+  height: 100%;
   box-sizing: border-box;
   background: var(--color-background);
   color: var(--color-text);
@@ -46,6 +48,13 @@ a {
 a:hover h2,
 a:hover h3 {
   text-decoration: underline;
+}
+
+button,
+input[type='submit'] {
+  background: var(--color-highlight);
+  padding: 5px 10px;
+  border-radius: 3px;
 }
 
 li {

@@ -4,12 +4,12 @@ import $ from 'jquery/dist/jquery.slim';
 import fetchUser from './fetch-user';
 import buildProfile from './build-profile';
 
-const storageKey = 'hanks_super_cool_app';
+export const storageKey = 'hanks_super_cool_app';
 
 export default (async function() {
   const hasData = JSON.parse(window.localStorage.getItem(storageKey));
   const body = $('body');
-  if (hasData) {
+  if (hasData && hasData.username && hasData.token) {
     const response = await fetchUser(hasData);
     buildProfile(response);
     body.show();
