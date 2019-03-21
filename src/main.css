@@ -19,6 +19,7 @@ body {
   color: var(--color-text);
   display: grid;
   font-family: var(--font-body);
+  font-size: var(--font-size);
   grid:
     [header-start] 'firstItem secondItem thirdItem' 100px [header-end] [content-start]
     'firstItem secondItem thirdItem' 1fr [content-end] / 350px 1fr 350px;
@@ -29,7 +30,7 @@ h2,
 h3,
 h4 {
   font-family: var(--font-header);
-  font-variation-settings: var(--font-weight-heavy);
+  font-variation-settings: var(--weight-heavy);
   transition: text-decoration 250ms;
 }
 
@@ -49,12 +50,6 @@ a:hover h3 {
 
 li {
   list-style-type: none;
-}
-
-input[type='submit'] {
-  font-family: var(--font-base);
-  padding: var(--padding-medium) var(--padding-large);
-  cursor: pointer;
 }
 
 .hero {
