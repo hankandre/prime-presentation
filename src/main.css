@@ -1,0 +1,99 @@
+@font-face {
+  font-family: Jost;
+  src: url('./jost.ttf') format('truetype');
+}
+
+:root {
+  --color-hover: hsla(222, 100%, 3%, 0.05);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  background: var(--color-background);
+  color: var(--color-text);
+  display: grid;
+  font-family: var(--font-body);
+  grid:
+    [header-start] 'firstItem secondItem thirdItem' 100px [header-end] [content-start]
+    'firstItem secondItem thirdItem' 1fr [content-end] / 350px 1fr 350px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-header);
+  font-variation-settings: var(--font-weight-heavy);
+  transition: text-decoration 250ms;
+}
+
+p {
+  margin: unset;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover h2,
+a:hover h3 {
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: none;
+}
+
+input[type='submit'] {
+  font-family: var(--font-base);
+  padding: var(--padding-medium) var(--padding-large);
+  cursor: pointer;
+}
+
+.hero {
+  grid-area: secondItem;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+
+.my-repos {
+  grid-area: thirdItem;
+}
+
+.starred-repos {
+  grid-area: firstItem;
+}
+
+.github-avatar {
+  border-radius: var(--avatar-radius);
+}
+
+.repo-title {
+  text-transform: capitalize;
+}
+
+.repo-list {
+  padding-left: unset;
+}
+
+.repo-list li {
+  background: transparent;
+  transition: background 250ms;
+}
+
+.repo-list li:hover {
+  background: var(--color-hover);
+}
+
+.repo-list a h3 {
+  color: var(--color-highlight);
+  margin-bottom: 5px;
+}
